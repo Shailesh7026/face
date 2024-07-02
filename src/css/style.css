@@ -1,0 +1,301 @@
+/* Variables for theme and the text size */
+:root{
+    --theme-color: #b32644;
+    --text-big: 1.5vw;
+    --text-small:1vw;
+    --text-very-small:0.8vw;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+
+body{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+.container {
+    border-radius: 30px;
+    height: fit-content !important;
+    width: 40% !important;
+    padding-bottom: 20px;
+    background: #f0f2f5;
+    display: flex;
+    position: relative;
+}
+
+
+
+button {
+    background: #b32644;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    padding: 10px 20px;
+    width: 80%;
+    font-size: var(--text-small);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#div-scan {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #f0f2f5;
+    transition: right 0.5s ease;
+}
+
+#div-scan.show {
+    right: 30%;
+}
+
+#back-btn {
+    background: #fff;
+    color: #b32644;
+}
+
+#div-process {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #f0f2f5;
+    transition: right 0.5s ease;
+}
+
+#div-process.show {
+    right: 30%;
+}
+
+
+#div-verify {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: #f0f2f5;
+    transition: right 0.5s ease;
+}
+
+#div-verify.show {
+    right: 30%;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.logo {
+    width: 15%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.side-text-heading {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-small);
+    font-weight: 600;
+}
+
+.side-text-sub {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-very-small);
+}
+.side-card-text-heading {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-very-small);
+    font-weight: 600;
+}
+
+.side-card-text-sub {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-very-small);
+}
+
+.side-logo {
+    font-size: var(--text-small);
+    padding: 2px;
+    border-radius: 100%;
+    background-color: #b326453a;
+}
+
+.title-big{
+    font-size: var(--text-big);
+}
+
+.title-small{
+    font-size: var(--text-small);
+}
+
+.media-btn {
+    bottom: 100px;
+}
+
+.pose-img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 50vh;
+    border-radius: 20px;
+}
+
+#div-guidelines,#div-process-indicator,#div-process-indicator-result {
+    background: #fcf7f7bb;
+    border-radius: 10px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+
+/* loading icon animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-icon {
+    animation: rotate 1s linear infinite;
+}
+
+#guidelines-card,#state-error-tips-card {
+    position: fixed;
+    bottom: -100%;
+    width: 40%;
+    height: 95%;
+    overflow-y: scroll;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: bottom 0.5s ease;
+    z-index: 1050; 
+}
+
+#guidelines-card.show {
+   bottom: 0;
+}
+
+#state-error-tips-card.show {
+    bottom: 0;
+}
+
+#guidelines-card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#state-error-tips-card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#div-guidelines {
+    cursor: pointer;
+}
+
+
+
+
+/* Media Query for Responsive design  */
+
+@media (max-width: 1450px) {
+    :root {
+      --text-big: 2vw;
+      --text-small:1.5vw;
+      --text-very-small:1vw;
+    }
+  }
+  
+  @media (max-width: 1130px) {
+    :root {
+        --text-big: 2.5vw;
+        --text-small:2vw;
+        --text-very-small:1.2vw;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    :root {
+        --text-big: 3vw;
+        --text-small:2.5vw;
+        --text-very-small:2vw;
+    }
+
+    .container {
+        width: 100% !important;
+        border-radius: 0px;
+    }
+
+    #guidelines-card , #state-error-tips-card {
+        width: 100vw;
+    }
+
+    .side-logo {
+        padding: 1px;
+    }
+
+    .logo{
+        width: 25%;
+    }
+
+    #div-verify.show {
+        right: 0%;
+    }
+    #div-process.show {
+        right: 0%;
+    }
+    #div-scan.show {
+        right: 0%;
+    }    
+  }
+
+  @media (max-width: 500px) {
+    :root {
+        --text-big: 7vw;
+        --text-small:3.8vw;
+        --text-very-small:3.5vw;
+    }
+  }
+ 
