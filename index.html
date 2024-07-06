@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width minimum-scale=1">
     <title>Mozippo Face-recognition</title>
 
     <!-- Google Fonts -->
@@ -22,9 +22,10 @@
 
     <!-- Human.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/human/3.2.2/human.js"
-    integrity="sha512-MsF2tz68mLsro7jJo2UuRrHk0h8uHLiC80oYA44HNa8szcbW9oXEsvGLINlEvYiRFmpBews5LkI5W/U5zcxgLw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-MsF2tz68mLsro7jJo2UuRrHk0h8uHLiC80oYA44HNa8szcbW9oXEsvGLINlEvYiRFmpBews5LkI5W/U5zcxgLw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    
 </head>
 
 <body>
@@ -86,7 +87,8 @@
             </div>
 
             <h2 class="card-title font-weight-bold main-text mb-1 title-big">Click with Mozippo!</h2>
-            <p class="card-text my-3 title-small">Upload your photo with your face in front of the camera and following pose (left-hand up)</p>
+            <p class="card-text my-3 title-small">Upload your photo with your face in front of the camera and following
+                pose (left-hand up)</p>
 
             <center class="my-4">
                 <img class="w-100 pose-img shadow-lg" src="src/images/pose.jpg" alt="Pose of image">
@@ -115,7 +117,8 @@
             <div class="media-btn d-flex">
                 <button id="back-btn" class="m-1">Back</button>
                 <button id="click-photo-btn" class="m-1">Click Photo</button>
-                <input id="captured-image"  value="captured-image" class="hidden d-none" type="file" accept="image/*;capture=camera">
+                <input id="captured-image" value="captured-image" class="hidden d-none" type="file"
+                    accept="image/*;capture=camera" capture="user">
             </div>
         </div>
 
@@ -278,11 +281,11 @@
     </div>
 
 
+   
 
 
-
-    
-    <script  type="module" src="src/js/script.js"></script>
+    <script type="module" src="src/js/script.js"></script>
+ 
 </body>
 
 </html>

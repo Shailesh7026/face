@@ -239,10 +239,11 @@ async function startFaceRecognition(file) {
 
     console.log("Checking if pose is correct...");
     updateProcessIndicator(3, "processing");
+    console.log(detections.gesture);
 
     // find pose as palm "open palm" or "facing center"
 
-    if(detections.gesture.some((gesture) => {return (gesture.gesture == "open palm" || gesture.gesture == "facing center") ; }))
+    if(detections.gesture.some((gesture) => { return (gesture.gesture == "open palm" || gesture.gesture == "facing center"); }))
       {
         console.log("Pose detected");
         updateProcessIndicator(3, "done");
@@ -253,9 +254,26 @@ async function startFaceRecognition(file) {
 
     if(getProcessIndicatorState(1) == "check_circle" && getProcessIndicatorState(2) == "check_circle" && getProcessIndicatorState(3) == "check_circle") {
 
-      setTimeout(function () {
-        toggleVisibility("div-process", "div-verify");
-      }, 2000);
+      fetch(`http://127.0.0.1:3000/api/v1/users/0b4692b2-d9fe-4549-940e-1e96dc2b1f5d/profile-verify`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if(data.success)
+          {
+            toggleVisibility("div-process", "div-verify");
+          }
+          else{
+            alert("Error:", data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
       
     }
     else{
